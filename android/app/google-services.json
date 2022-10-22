@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "608472451280",
+    "project_id": "plastidive",
+    "storage_bucket": "plastidive.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608472451280:android:b423734b56e68d061036d5",
+        "android_client_info": {
+          "package_name": "com.example.plastidive"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "608472451280-66l76en7efs13l89gmvt87amc1h22tjf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.plastidive",
+            "certificate_hash": "88ca17309476190e57808e817e9fff1db68c3d70"
+          }
+        },
+        {
+          "client_id": "608472451280-pv6mlm5ljrc63vcutor5ct7n8ih9vr2j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9eOHGkIlzhVN_mx_AmH0-y5gqVPUZ3H8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "608472451280-pv6mlm5ljrc63vcutor5ct7n8ih9vr2j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
