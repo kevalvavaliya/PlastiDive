@@ -62,13 +62,14 @@ class _GameMapScreenState extends State<GameMapScreen> {
                     Provider.of<MapProvide>(context, listen: false)
                         .addMarker(Marker(
                             markerId: MarkerId(location.toString()),
+                            icon: BitmapDescriptor.defaultMarkerWithHue(123.0),
                             onTap: () {
                               showModalBottomSheet(
                                   context: context,
                                   builder: ((context) {
                                     return ConstrainedBox(
                                       constraints: const BoxConstraints(
-                                          maxHeight: 400,
+                                          maxHeight: 450,
                                           minWidth: double.infinity),
                                       child: Column(
                                         crossAxisAlignment:
@@ -77,12 +78,12 @@ class _GameMapScreenState extends State<GameMapScreen> {
                                             MainAxisAlignment.start,
                                         children: [
                                           Image.network(
-                                              'https://cdn.discordapp.com/attachments/889907958857744494/1033650817187725383/jalbu.png'),
+                                              'https://cdn.discordapp.com/attachments/889907958857744494/1033658140283113512/e44d5e33-d3b7-417e-8477-a5d17955de82.jpg'),
                                           const Padding(
                                             padding: EdgeInsets.symmetric(
                                                 vertical: 4, horizontal: 10),
                                             child: Text(
-                                              'Found underwater plastic at Marina beach',
+                                              'cleaned plastic at Marina beach',
                                               style: TextStyle(
                                                   fontFamily: 'Rubik',
                                                   fontWeight: FontWeight.w500,
@@ -108,13 +109,13 @@ class _GameMapScreenState extends State<GameMapScreen> {
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               20),
-                                                      color: Colors.red[100]),
+                                                      color: Colors.blue[100]),
                                                   child: const FittedBox(
                                                     child: Text(
                                                       'plastic detected',
                                                       style: TextStyle(
                                                           fontFamily: 'Rubik',
-                                                          color: Colors.red),
+                                                          color: Colors.blue),
                                                     ),
                                                   ),
                                                 ),
@@ -137,7 +138,7 @@ class _GameMapScreenState extends State<GameMapScreen> {
                                                       color: Colors.green[100]),
                                                   child: const FittedBox(
                                                     child: Text(
-                                                      'Detections : 10',
+                                                      'Detections : 0',
                                                       style: TextStyle(
                                                           fontFamily: 'Rubik',
                                                           color: Colors.green),
@@ -163,7 +164,7 @@ class _GameMapScreenState extends State<GameMapScreen> {
                                                       color: Colors.amber[100]),
                                                   child: const FittedBox(
                                                     child: Text(
-                                                      'Detected by : Keval',
+                                                      'cleaned by : Abhi',
                                                       style: TextStyle(
                                                           fontFamily: 'Rubik',
                                                           color: Colors.orange),
@@ -184,12 +185,11 @@ class _GameMapScreenState extends State<GameMapScreen> {
                                                     AddMarkerData.routeName);
                                               },
                                               style: ElevatedButton.styleFrom(
-                                                backgroundColor:
-                                                    const Color.fromARGB(
-                                                        255, 2, 174, 253),
+                                                backgroundColor: Color.fromARGB(
+                                                    255, 2, 253, 44),
                                               ),
                                               child: const Text(
-                                                  'Clean plastic and earn rewards',
+                                                  'Plastic cleaned look for another marker',
                                                   style: TextStyle(
                                                       color: Colors.black)),
                                             ),

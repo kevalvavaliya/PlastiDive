@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:plastidive/provider/userprovider.dart';
 import 'package:plastidive/screens/gamemapscreen.dart';
 import 'package:provider/provider.dart';
@@ -9,6 +10,7 @@ class UserScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.lightBlue,
         body: Container(
           width: double.infinity,
@@ -17,6 +19,9 @@ class UserScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Container(
+                  height: 200,
+                  child: LottieBuilder.asset('assets/images/surf.json')),
               const Text(
                 'Enter username',
                 style: TextStyle(fontFamily: 'AlfaSlabOne', fontSize: 34),
@@ -48,8 +53,8 @@ class UserScreen extends StatelessWidget {
                   if (!usercontroller.text.isEmpty) {
                     Provider.of<UserProvider>(context, listen: false)
                         .addUser(usercontroller.text)
-                        .then((_)=>Navigator.of(context)
-                      .pushReplacementNamed(GameMapScreen.routeName));
+                        .then((_) => Navigator.of(context)
+                            .pushReplacementNamed(GameMapScreen.routeName));
                   }
                 },
                 style: ElevatedButton.styleFrom(fixedSize: Size(200, 70)),

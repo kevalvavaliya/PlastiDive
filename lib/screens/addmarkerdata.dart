@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:plastidive/provider/mapprovider.dart';
+import 'package:plastidive/screens/rewardscreen.dart';
 import 'package:plastidive/util.dart';
 import 'package:provider/provider.dart';
 
@@ -86,7 +87,8 @@ class AddMarkerData extends StatelessWidget {
                       context);
                   Timer(Duration(seconds: 5), () {
                     Navigator.of(context).pop(context);
-                    Navigator.of(context).pop(context);
+                    Navigator.of(context)
+                        .pushReplacementNamed(RewardScreen.routeName);
                   });
                 }
               },

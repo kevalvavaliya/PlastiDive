@@ -78,6 +78,8 @@ flutter:
     - assets/images/base.jpg
     - assets/images/scuba.png
     - assets/images/dive.json
+    - assets/images/score.json
+    - assets/images/surf.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
