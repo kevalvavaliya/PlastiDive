@@ -1,7 +1,14 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:plastidive/provider/mapprovider.dart';
+import 'package:plastidive/provider/userprovider.dart';
 import 'package:plastidive/screens/gamemapscreen.dart';
+import 'package:plastidive/screens/userscreen.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class StartGameScreen extends StatelessWidget {
   @override
@@ -42,10 +49,20 @@ class StartGameScreen extends StatelessWidget {
                 ),
                 Align(
                   child: ElevatedButton(
-                    onPressed: () => Navigator.of(context)
-                        .pushNamed(GameMapScreen.routeName),
+                    onPressed: () {
+                      Provider.of<UserProvider>(context, listen: false)
+                          .tryLogin()
+                          .then((value) {
+                        if (value) {
+                          Navigator.of(context)
+                              .pushNamed(GameMapScreen.routeName);
+                        } else {
+                          Navigator.of(context).pushNamed(UserScreen.routeName);
+                        }
+                      });
+                    },
                     style: ElevatedButton.styleFrom(
-                        fixedSize: const Size(270, 100)),
+                        fixedSize: const Size(270, 100), elevation: 20),
                     child: Text(
                       'Play Now',
                       style: Theme.of(context).textTheme.headline5,
