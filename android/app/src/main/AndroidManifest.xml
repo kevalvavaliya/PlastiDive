@@ -11,6 +11,7 @@
    <application
         android:label="plastidive"
         android:name="${applicationName}"
+        android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher">
         <meta-data android:name="com.google.android.geo.API_KEY"
                android:value="AIzaSyCLCRPXyQsP4aYAUTKY0cPma8Ub9Tv2X5Y"/>

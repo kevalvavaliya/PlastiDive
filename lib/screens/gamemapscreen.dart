@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:flutter/rendering.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -58,9 +59,146 @@ class _GameMapScreenState extends State<GameMapScreen> {
               children: [
                 GoogleMap(
                   onLongPress: (location) {
-                    Provider.of<MapProvide>(context, listen: false).addMarker(
-                        Marker(
+                    Provider.of<MapProvide>(context, listen: false)
+                        .addMarker(Marker(
                             markerId: MarkerId(location.toString()),
+                            onTap: () {
+                              showModalBottomSheet(
+                                  context: context,
+                                  builder: ((context) {
+                                    return ConstrainedBox(
+                                      constraints: const BoxConstraints(
+                                          maxHeight: 400,
+                                          minWidth: double.infinity),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Image.network(
+                                              'https://cdn.discordapp.com/attachments/889907958857744494/1033650817187725383/jalbu.png'),
+                                          const Padding(
+                                            padding: EdgeInsets.symmetric(
+                                                vertical: 4, horizontal: 10),
+                                            child: Text(
+                                              'Found underwater plastic at Marina beach',
+                                              style: TextStyle(
+                                                  fontFamily: 'Rubik',
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 18),
+                                            ),
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Flexible(
+                                                child: Container(
+                                                  margin: const EdgeInsets
+                                                          .symmetric(
+                                                      vertical: 6,
+                                                      horizontal: 10),
+                                                  padding: const EdgeInsets
+                                                          .symmetric(
+                                                      vertical: 4,
+                                                      horizontal: 12),
+                                                  height: 30,
+                                                  decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20),
+                                                      color: Colors.red[100]),
+                                                  child: const FittedBox(
+                                                    child: Text(
+                                                      'plastic detected',
+                                                      style: TextStyle(
+                                                          fontFamily: 'Rubik',
+                                                          color: Colors.red),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Flexible(
+                                                child: Container(
+                                                  margin: const EdgeInsets
+                                                          .symmetric(
+                                                      vertical: 6,
+                                                      horizontal: 10),
+                                                  padding: const EdgeInsets
+                                                          .symmetric(
+                                                      vertical: 4,
+                                                      horizontal: 12),
+                                                  height: 30,
+                                                  decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20),
+                                                      color: Colors.green[100]),
+                                                  child: const FittedBox(
+                                                    child: Text(
+                                                      'Detections : 10',
+                                                      style: TextStyle(
+                                                          fontFamily: 'Rubik',
+                                                          color: Colors.green),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Flexible(
+                                                child: Container(
+                                                  margin: const EdgeInsets
+                                                          .symmetric(
+                                                      vertical: 6,
+                                                      horizontal: 10),
+                                                  padding: const EdgeInsets
+                                                          .symmetric(
+                                                      vertical: 4,
+                                                      horizontal: 12),
+                                                  height: 30,
+                                                  decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20),
+                                                      color: Colors.amber[100]),
+                                                  child: const FittedBox(
+                                                    child: Text(
+                                                      'Detected by : Keval',
+                                                      style: TextStyle(
+                                                          fontFamily: 'Rubik',
+                                                          color: Colors.orange),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          const SizedBox(
+                                            height: 10,
+                                          ),
+                                          Align(
+                                            alignment: Alignment.bottomCenter,
+                                            child: ElevatedButton(
+                                              onPressed: () {
+                                                Navigator.of(context).pushNamed(
+                                                    AddMarkerData.routeName);
+                                              },
+                                              style: ElevatedButton.styleFrom(
+                                                backgroundColor:
+                                                    const Color.fromARGB(
+                                                        255, 2, 174, 253),
+                                              ),
+                                              child: const Text(
+                                                  'Clean plastic and earn rewards',
+                                                  style: TextStyle(
+                                                      color: Colors.black)),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    );
+                                  }));
+                            },
                             position: location));
                   },
                   mapToolbarEnabled: false,
@@ -80,7 +218,7 @@ class _GameMapScreenState extends State<GameMapScreen> {
                     style: ElevatedButton.styleFrom(
                         foregroundColor: Colors.white,
                         backgroundColor: Colors.blue),
-                    child: Text("Add marker"),
+                    child: const Text("Add marker"),
                   ),
                 )
               ],

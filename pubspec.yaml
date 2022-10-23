@@ -42,6 +42,9 @@ dependencies:
   http: ^0.13.5
   shared_preferences: ^2.0.15
   image_picker: ^0.8.6
+  firebase_storage: ^11.0.2
+  lottie: ^1.4.2
+
 
 
 
@@ -74,6 +77,7 @@ flutter:
   assets:
     - assets/images/base.jpg
     - assets/images/scuba.png
+    - assets/images/dive.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

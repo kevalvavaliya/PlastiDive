@@ -1,6 +1,8 @@
+import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:plastidive/provider/mapprovider.dart';
+import 'package:plastidive/util.dart';
 import 'package:provider/provider.dart';
 
 class AddMarkerData extends StatelessWidget {
@@ -76,7 +78,17 @@ class AddMarkerData extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                if (!markercontroller.text.isEmpty) {}
+                if (!markercontroller.text.isEmpty) {
+                  // Provider.of<MapProvide>(context, listen: false)
+                  //     .uplodeImage(image as File);
+                  Utility.showLoadingIndicator(
+                      "We are diving deep a few bits tried to escape, but we caught them",
+                      context);
+                  Timer(Duration(seconds: 5), () {
+                    Navigator.of(context).pop(context);
+                    Navigator.of(context).pop(context);
+                  });
+                }
               },
               style: ElevatedButton.styleFrom(fixedSize: Size(200, 70)),
               child: const Text('Detect plastic',
